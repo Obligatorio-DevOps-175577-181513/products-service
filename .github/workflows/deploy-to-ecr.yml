@@ -97,7 +97,7 @@ jobs:
     name: Push Docker Image to ECR
     needs: analyze
     runs-on: ubuntu-latest
-    if: ${{ github.event_name == 'push' && (github.ref == 'refs/heads/production' || github.ref == 'refs/heads/branch-staging' || github.ref == 'refs/heads/branch-develop') }}
+    if: ${{ github.event_name == 'push' && (github.ref == 'refs/heads/production' || github.ref == 'refs/heads/branch-staging' || github.ref == 'refs/heads/branch-develop') || github.event_name == 'workflow_dispatch'}}
     steps:
       - uses: actions/checkout@v3
 
